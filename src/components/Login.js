@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import Button from '@material-ui/core/Button';
 
 const Login = () => {
   return (
-    <h2>Logout</h2>
+    <Fragment>
+      <h2>Logout</h2>
+      <Button color="primary">Login</Button>
+      <Button color="secondary">Logout</Button>
+    </Fragment>
   );
 };
 
