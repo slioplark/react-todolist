@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import TodoItem from './TodoItem';
 import Card from '@material-ui/core/Card';
 import Input from '@material-ui/core/Input';
 import AddIcon from '@material-ui/icons/Add';
@@ -19,6 +20,12 @@ const TodoList = () => {
 
   const updateTodo = (e) => {
     setTodo(e.target.value);
+  }
+
+  const deleteTodo = (i) => {
+    const tempList = [...list];
+    tempList.splice(i, 1);
+    setList(tempList);
   }
 
   return (
@@ -42,9 +49,14 @@ const TodoList = () => {
           }
         />
         {
-          list.map(item => {
+          list.map((item, index) => {
             return (
-              <p>{item}</p>
+              <TodoItem
+                key={index}
+                value={item}
+                index={index}
+                deleteTodo={deleteTodo}
+              />
             );
           })
         }
