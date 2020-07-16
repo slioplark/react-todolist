@@ -23,8 +23,7 @@ const TodoList = () => {
   }
 
   const deleteTodo = (i) => {
-    const tempList = [...list];
-    tempList.splice(i, 1);
+    const tempList = list.filter((item, index) => index !== i);
     setList(tempList);
   }
 
@@ -49,16 +48,14 @@ const TodoList = () => {
           }
         />
         {
-          list.map((item, index) => {
-            return (
-              <TodoItem
-                key={index}
-                value={item}
-                index={index}
-                deleteTodo={deleteTodo}
-              />
-            );
-          })
+          list.map((item, index) => (
+            <TodoItem
+              key={item}
+              value={item}
+              index={index}
+              deleteTodo={deleteTodo}
+            />
+          ))
         }
       </CardContent>
     </Card>
