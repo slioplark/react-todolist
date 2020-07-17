@@ -1,12 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import Box from '@material-ui/core/Box';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import { Link } from 'react-router-dom';
 
 const Header = () => {
+  const isLogged = useSelector(state => state.auth);
+
   return (
     <AppBar position="static">
       <Toolbar>
@@ -20,10 +23,14 @@ const Header = () => {
           </section>
           <section>
             <Link to="/">
-              <Button color="inherit">Home</Button>
+              <Button color="inherit">
+                Home
+              </Button>
             </Link>
             <Link to="/login">
-              <Button color="inherit">Login</Button>
+              <Button color="inherit">
+                {isLogged ? 'Login' : 'Logout'}
+              </Button>
             </Link>
           </section>
         </Box>
