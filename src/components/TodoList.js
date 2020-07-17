@@ -7,8 +7,17 @@ import CardHeader from '@material-ui/core/CardHeader';
 import IconButton from '@material-ui/core/IconButton';
 import CardContent from '@material-ui/core/CardContent';
 import InputAdornment from '@material-ui/core/InputAdornment';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    minHeight: '512px',
+  }
+}));
 
 const TodoList = () => {
+
+  const classes = useStyles();
 
   const [todo, setTodo] = useState('');
   const [list, setList] = useState([]);
@@ -28,7 +37,7 @@ const TodoList = () => {
   }
 
   return (
-    <Card >
+    <Card className={classes.root}>
       <CardHeader title="Todo List"></CardHeader>
       <CardContent>
         <Input

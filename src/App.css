@@ -10,9 +10,12 @@
   pointer-events: none;
 }
 
+.MuiAppBar-root {
+  margin-bottom: 64px;
+}
+
 .MuiCard-root {
   max-width: 512px;
-  min-height: 512px;
   margin: auto;
 }
 
