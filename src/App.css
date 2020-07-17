@@ -10,9 +10,9 @@
   pointer-events: none;
 }
 
-.container {
-  width: 100%;
+.MuiCard-root {
   max-width: 512px;
+  min-height: 512px;
   margin: auto;
 }
 

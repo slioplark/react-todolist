@@ -4,7 +4,7 @@ import logo from '../logo.svg';
 
 const Home = () => {
   return (
-    <section className="container">
+    <section>
       <img src={logo} className="App-logo" alt="logo" />
       <TodoList />
     </section>
