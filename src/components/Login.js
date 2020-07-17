@@ -24,6 +24,9 @@ const Login = () => {
   const isLogged = useSelector(state => state.auth);
   const dispatch = useDispatch();
 
+  const [lastName, setLastName] = useState('');
+  const [firstName, setFirstName] = useState('');
+
   return (
     <Card className={classes.root}>
       <CardContent>
@@ -32,13 +35,17 @@ const Login = () => {
           fullWidth
           id="lastName"
           label="Last Name"
+          value={lastName}
           variant="outlined"
+          onChange={(e) => setLastName(e.target.value)}
         />
         <TextField
           fullWidth
           id="firstName"
           label="First Name"
+          value={firstName}
           variant="outlined"
+          onChange={(e) => setFirstName(e.target.value)}
         />
       </CardContent>
       <CardActions >
