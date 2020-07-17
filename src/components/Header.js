@@ -11,14 +11,21 @@ const Header = () => {
     <AppBar position="static">
       <Toolbar>
         <Box display="flex" justifyContent="space-between" width="100%">
-          <Link to="/">
-            <Typography variant="h6">
-              React Todolist
-            </Typography>
-          </Link>
-          <Link to="/login">
-            <Button color="inherit">Login</Button>
-          </Link>
+          <section>
+            <Link to="/">
+              <Typography variant="h6">
+                React Todolist
+              </Typography>
+            </Link>
+          </section>
+          <section>
+            <Link to="/">
+              <Button color="inherit">Home</Button>
+            </Link>
+            <Link to="/login">
+              <Button color="inherit">Login</Button>
+            </Link>
+          </section>
         </Box>
       </Toolbar>
     </AppBar>
