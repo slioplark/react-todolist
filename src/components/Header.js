@@ -29,7 +29,7 @@ const Header = () => {
             </Link>
             <Link to="/login">
               <Button color="inherit">
-                {isLogged ? 'Login' : 'Logout'}
+                {isLogged ? 'Logout' : 'Login'}
               </Button>
             </Link>
           </section>

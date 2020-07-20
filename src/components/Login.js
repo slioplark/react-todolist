@@ -48,21 +48,28 @@ const Login = () => {
           onChange={(e) => setFirstName(e.target.value)}
         />
       </CardContent>
-      <CardActions >
-        <Button
-          fullWidth
-          color="primary"
-          onClick={() => dispatch(login())}
-        >
-          Login
-          </Button>
-        <Button
-          fullWidth
-          color="secondary"
-          onClick={() => dispatch(logout())}
-        >
-          Logout
-          </Button>
+      <CardActions>
+        {
+          isLogged
+            ? (
+              <Button
+                fullWidth
+                color="secondary"
+                onClick={() => dispatch(logout())}
+              >
+                Logout
+              </Button>
+            )
+            : (
+              <Button
+                fullWidth
+                color="primary"
+                onClick={() => dispatch(login())}
+              >
+                Login
+              </Button>
+            )
+        }
       </CardActions>
     </Card>
   );
