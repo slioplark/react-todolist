@@ -29,19 +29,13 @@ const Header = () => {
               </Button>
             </Link>
             <Link to="/login">
-              {
-                isLogged
-                  ? (
-                    <span>
-                      {profile.lastName} {profile.firstName}
-                    </span>
-                  )
-                  : (
-                    <Button color="inherit">
-                      Login
-                    </Button>
-                  )
-              }
+              <Button color="inherit">
+                {
+                  isLogged
+                    ? `${profile.lastName} ${profile.firstName}`
+                    : `Login`
+                }
+              </Button>
             </Link>
           </section>
         </Box>
