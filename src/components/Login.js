@@ -41,6 +41,7 @@ const Login = () => {
   const handleLogout = () => {
     dispatch(logout());
     dispatch(remove());
+    formik.resetForm({});
   }
 
   return (
