@@ -8,6 +8,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 
 const Header = () => {
+  const profile = useSelector(state => state.profile);
   const isLogged = useSelector(state => state.auth);
 
   return (
@@ -28,9 +29,19 @@ const Header = () => {
               </Button>
             </Link>
             <Link to="/login">
-              <Button color="inherit">
-                {isLogged ? 'Logout' : 'Login'}
-              </Button>
+              {
+                isLogged
+                  ? (
+                    <span>
+                      {profile.lastName} {profile.firstName}
+                    </span>
+                  )
+                  : (
+                    <Button color="inherit">
+                      Login
+                    </Button>
+                  )
+              }
             </Link>
           </section>
         </Box>

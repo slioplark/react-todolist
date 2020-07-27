@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React from 'react';
+import { useFormik } from 'formik';
 import { login, logout } from '../actions/auth';
+import { create, remove } from '../actions/profile';
+import { useSelector, useDispatch } from 'react-redux';
 import Card from '@material-ui/core/Card';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
@@ -24,8 +26,22 @@ const Login = () => {
   const isLogged = useSelector(state => state.auth);
   const dispatch = useDispatch();
 
-  const [lastName, setLastName] = useState('');
-  const [firstName, setFirstName] = useState('');
+  const formik = useFormik({
+    initialValues: {
+      lastName: '',
+      firstName: '',
+    }
+  });
+
+  const handleLogin = () => {
+    dispatch(login());
+    dispatch(create(formik.values));
+  }
+
+  const handleLogout = () => {
+    dispatch(logout());
+    dispatch(remove());
+  }
 
   return (
     <Card className={classes.root}>
@@ -33,19 +49,19 @@ const Login = () => {
         <PersonIcon fontSize="large" />
         <TextField
           fullWidth
-          id="lastName"
+          name="lastName"
           label="Last Name"
-          value={lastName}
+          value={formik.values.lastName}
           variant="outlined"
-          onChange={(e) => setLastName(e.target.value)}
+          onChange={formik.handleChange}
         />
         <TextField
           fullWidth
-          id="firstName"
+          name="firstName"
           label="First Name"
-          value={firstName}
+          value={formik.values.firstName}
           variant="outlined"
-          onChange={(e) => setFirstName(e.target.value)}
+          onChange={formik.handleChange}
         />
       </CardContent>
       <CardActions>
@@ -55,7 +71,7 @@ const Login = () => {
               <Button
                 fullWidth
                 color="secondary"
-                onClick={() => dispatch(logout())}
+                onClick={handleLogout}
               >
                 Logout
               </Button>
@@ -64,7 +80,7 @@ const Login = () => {
               <Button
                 fullWidth
                 color="primary"
-                onClick={() => dispatch(login())}
+                onClick={handleLogin}
               >
                 Login
               </Button>

@@ -3,17 +3,12 @@ import { LOGIN, LOGOUT } from '../constants/actionTypes';
 const auth = (state = false, action) => {
   switch (action.type) {
     case LOGIN:
-      state = true;
-      break;
+      return true;
     case LOGOUT:
-      state = false;
-      break;
+      return false;
     default:
-      state = false;
-      break;
+      return state;
   }
-
-  return state;
 };
 
 export default auth;
