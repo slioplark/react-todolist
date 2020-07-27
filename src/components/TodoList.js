@@ -11,7 +11,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    minHeight: '512px',
+    minHeight: '50vh',
   }
 }));
 
