@@ -1,9 +1,9 @@
 import { LOGIN, LOGOUT } from '../constants/actionTypes';
 
 export const login = () => ({
-  type: LOGIN
+  type: LOGIN,
 });
 
 export const logout = () => ({
-  type: LOGOUT
+  type: LOGOUT,
 });

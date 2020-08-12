@@ -16,33 +16,32 @@ const useStyles = makeStyles((theme) => ({
     '& .MuiTextField-root': {
       margin: theme.spacing(1, 0),
     },
-  }
+  },
 }));
 
 const Login = () => {
-
   const classes = useStyles();
 
-  const isLogged = useSelector(state => state.auth);
+  const isLogged = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
   const formik = useFormik({
     initialValues: {
       lastName: '',
       firstName: '',
-    }
+    },
   });
 
   const handleLogin = () => {
     dispatch(login());
     dispatch(create(formik.values));
-  }
+  };
 
   const handleLogout = () => {
     dispatch(logout());
     dispatch(remove());
     formik.resetForm({});
-  }
+  };
 
   return (
     <Card className={classes.root}>
@@ -66,31 +65,18 @@ const Login = () => {
         />
       </CardContent>
       <CardActions>
-        {
-          isLogged
-            ? (
-              <Button
-                fullWidth
-                color="secondary"
-                onClick={handleLogout}
-              >
-                Logout
-              </Button>
-            )
-            : (
-              <Button
-                fullWidth
-                color="primary"
-                onClick={handleLogin}
-              >
-                Login
-              </Button>
-            )
-        }
+        {isLogged ? (
+          <Button fullWidth color="secondary" onClick={handleLogout}>
+            Logout
+          </Button>
+        ) : (
+          <Button fullWidth color="primary" onClick={handleLogin}>
+            Login
+          </Button>
+        )}
       </CardActions>
     </Card>
   );
-
 };
 
 export default Login;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import TodoItem from './TodoItem';
 import Card from '@material-ui/core/Card';
 import Input from '@material-ui/core/Input';
@@ -12,11 +12,10 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
   root: {
     minHeight: '50vh',
-  }
+  },
 }));
 
 const TodoList = () => {
-
   const classes = useStyles();
 
   const [todo, setTodo] = useState('');
@@ -25,16 +24,16 @@ const TodoList = () => {
   const createTodo = (e) => {
     setList([...list, todo]);
     setTodo('');
-  }
+  };
 
   const updateTodo = (e) => {
     setTodo(e.target.value);
-  }
+  };
 
   const deleteTodo = (i) => {
     const tempList = list.filter((item, index) => index !== i);
     setList(tempList);
-  }
+  };
 
   return (
     <Card className={classes.root}>
@@ -47,29 +46,23 @@ const TodoList = () => {
           placeholder="Add New Item"
           endAdornment={
             <InputAdornment position="end">
-              <IconButton
-                color="primary"
-                onClick={createTodo}
-              >
+              <IconButton color="primary" onClick={createTodo}>
                 <AddIcon />
               </IconButton>
             </InputAdornment>
           }
         />
-        {
-          list.map((item, index) => (
-            <TodoItem
-              key={item}
-              value={item}
-              index={index}
-              deleteTodo={deleteTodo}
-            />
-          ))
-        }
+        {list.map((item, index) => (
+          <TodoItem
+            key={item}
+            value={item}
+            index={index}
+            deleteTodo={deleteTodo}
+          />
+        ))}
       </CardContent>
     </Card>
   );
-
 };
 
 export default TodoList;

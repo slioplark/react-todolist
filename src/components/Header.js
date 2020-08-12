@@ -8,8 +8,8 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 
 const Header = () => {
-  const profile = useSelector(state => state.profile);
-  const isLogged = useSelector(state => state.auth);
+  const profile = useSelector((state) => state.profile);
+  const isLogged = useSelector((state) => state.auth);
 
   return (
     <AppBar position="static">
@@ -17,24 +17,18 @@ const Header = () => {
         <Box display="flex" justifyContent="space-between" width="100%">
           <section>
             <Link to="/">
-              <Typography variant="h6">
-                React Todolist
-              </Typography>
+              <Typography variant="h6">React Todolist</Typography>
             </Link>
           </section>
           <section>
             <Link to="/">
-              <Button color="inherit">
-                Home
-              </Button>
+              <Button color="inherit">Home</Button>
             </Link>
             <Link to="/login">
               <Button color="inherit">
-                {
-                  isLogged
-                    ? `${profile.lastName} ${profile.firstName}`
-                    : `Login`
-                }
+                {isLogged
+                  ? `${profile.lastName} ${profile.firstName}`
+                  : `Login`}
               </Button>
             </Link>
           </section>
